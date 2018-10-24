@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
-    {{- partial "head.html" . -}}
-    <body>
+{{- partial "head.html" . -}}
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
         {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
+        <main class="mdl-layout__content">
+            <div class="mdl-cell mdl-cell--10-col">
+                    <section class="section--center mdl-grid mdl-grid--no-spacing">
+                {{- block "main" . }}{{- end }}
+                    </section>
+            </div>
+        </main>
         {{- partial "footer.html" . -}}
-    </body>
+    </div>
+
+</body>
+
 </html>
