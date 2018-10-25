@@ -14,13 +14,14 @@
         </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Tags</span>
+        {{ range  $taxname, $tax := .Site.Taxonomies  }}
+        <span class="mdl-layout-title">{{$taxname}}</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
+            {{ range $key, $val := $tax }}
+            <a class="mdl-navigation__link" href="/{{$taxname}}/{{$key}}">{{ $key }}</a>
+            {{ end }}
         </nav>
+        {{ end }}
     </div>
 
   
