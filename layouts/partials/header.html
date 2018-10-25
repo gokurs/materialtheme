@@ -1,15 +1,26 @@
-<header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+<!-- Always shows a header, even in smaller screens. -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">{{.Title}}</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                {{ range $index, $menu := .Site.Menus.main }}
+                <a class="mdl-navigation__link" href="{{$menu.URL}}">{{$menu.Name}}</a>
+                {{ end }}
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Tags</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
     </div>
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        <h3>{{ .Title }}</h3>
-    </div>
-    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-    </div>
-    <div class="mdl-layout__tab-bar mdl-color--primary-dark">
-        <a href="#overview" class="mdl-layout__tab is-active">Overview</a>
-        <a href="#features" class="mdl-layout__tab">Features</a>
-       
-       
-    </div>
-</header>
+
+  
